@@ -1,0 +1,14 @@
+2021-01-26 22:08:13,962 INFO c.u.p.ProducaoParImparJobApplication [main] Starting ProducaoParImparJobApplication using Java 1.8.0_261 on LAPTOP-2L7EKT6C with PID 69464 (C:\areatrabalho\projetos\Eclipse\suleiman-arq-bath\ProducaoParImparJob-Exercicio\target\classes started by sulei in C:\areatrabalho\projetos\Eclipse\suleiman-arq-bath\ProducaoParImparJob-Exercicio)
+2021-01-26 22:08:13,967 INFO c.u.p.ProducaoParImparJobApplication [main] No active profile set, falling back to default profiles: default
+2021-01-26 22:08:14,501 INFO o.s.c.a.ConfigurationClassEnhancer [main] @Bean method PropsConfig.config is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2021-01-26 22:08:14,816 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2021-01-26 22:08:15,875 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-01-26 22:08:16,009 INFO o.s.b.c.r.s.JobRepositoryFactoryBean [main] No database type set, using meta data indicating: MYSQL
+2021-01-26 22:08:16,115 INFO o.s.b.c.l.s.SimpleJobLauncher [main] No TaskExecutor has been set, defaulting to synchronous executor.
+2021-01-26 22:08:16,282 INFO c.u.p.ProducaoParImparJobApplication [main] Started ProducaoParImparJobApplication in 2.966 seconds (JVM running for 4.573)
+2021-01-26 22:08:16,770 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=imprimeParImparJob]] launched with the following parameters: [{run.id=3}]
+2021-01-26 22:08:17,247 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [imprimeParImparStep]
+2021-01-26 22:08:19,616 INFO o.s.b.c.s.AbstractStep [main] Step: [imprimeParImparStep] executed in 2s368ms
+2021-01-26 22:08:19,911 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=imprimeParImparJob]] completed with the following parameters: [{run.id=3}] and the following status: [COMPLETED] in 2s996ms
+2021-01-26 22:08:19,916 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2021-01-26 22:08:19,928 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
