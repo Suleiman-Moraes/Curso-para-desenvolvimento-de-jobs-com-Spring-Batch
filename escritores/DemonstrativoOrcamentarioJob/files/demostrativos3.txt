@@ -1,5 +1,5 @@
 
-SISTEMA INTEGRADO: XPTO 				 DATA: 18/06/2021
+SISTEMA INTEGRADO: XPTO 				 DATA: 22/06/2021
 MÓDULO: ORÇAMENTO 						 HORA: 08:06
 			DEMONSTRATIVO ORCAMENTARIO
 ----------------------------------------------------------------------------

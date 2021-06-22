@@ -4,8 +4,10 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
-import org.springframework.batch.item.ItemWriter;
+import org.springframework.batch.item.file.FlatFileItemWriter;
+import org.springframework.batch.item.support.ClassifierCompositeItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,18 +18,19 @@ import com.springbatch.contasbancarias.dominio.Conta;
 public class CriacaoContasStepConfig {
 	@Autowired
 	private StepBuilderFactory stepBuilderFactory;
-	
+
 	@Bean
-	public Step criacaoContasStep(
-			ItemReader<Cliente> leituraClientesReader, 
+	public Step criacaoContasStep(ItemReader<Cliente> leituraClientesReader,
 			ItemProcessor<Cliente, Conta> geracaoContaProcessor,
-			ItemWriter<Conta> impressaoContaWriter) {
-		return stepBuilderFactory
-				.get("criacaoContasStep")
-				.<Cliente, Conta>chunk(100)
+			ClassifierCompositeItemWriter<Conta> classifierContaWriter,
+			@Qualifier("fileContaWriter") FlatFileItemWriter<Conta> fileContaWriter,
+			@Qualifier("clienteInvalidoWriter") FlatFileItemWriter<Conta> clienteInvalidoWriter) {
+		return stepBuilderFactory.get("criacaoContasStep").<Cliente, Conta>chunk(100)
 				.reader(leituraClientesReader)
 				.processor(geracaoContaProcessor)
-				.writer(impressaoContaWriter)
+				.writer(classifierContaWriter)
+				.stream(clienteInvalidoWriter)
+				.stream(fileContaWriter)
 				.build();
 	}
 }
